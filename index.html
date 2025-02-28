@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Database</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Film Database</h1>
+        <div class="filters">
+            <label for="sortBy">Sort By:</label>
+            <select id="sortBy" onchange="sortFilms()">
+                <option value="" disabled selected>Sort By</option>  <!-- Default empty option -->
+                <option value="title">Title</option>
+                <option value="releaseYear">Release Year</option>
+                <option value="boxOffice">Box Office Revenue</option>
+            </select>
+
+            <label for="filterCountry">Filter by Country:</label>
+            <input type="text" id="filterCountry" oninput="filterFilms()" placeholder="Enter Country...">
+            <label for="filterName">Filter by Title:</label>
+            <input type="text" id="filterName" oninput="filterFilms()" placeholder="Enter Title...">
+        </div>
+    </header>
+    <section id="filmData">
+        <!-- Film data will be dynamically inserted here -->
+    </section>
+
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
+
