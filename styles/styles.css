@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #ff6b6b, #f7b7a3);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Align to the top to avoid unnecessary space */
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+/* Filter Controls Styling */
+.filters {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.filters label,
+.filters input,
+.filters select {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #efbcce;
+    border: 1px solid #fff;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: #ff6b6b;
+}
+
+/* Scrollable Film Container */
+#filmData {
+    margin-top: 100px; /* Leave space below header */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Dynamic column width */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    height: 80vh;  /* Limit the height of the container to 80% of the viewport */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scroll-behavior: smooth;  /* Smooth scrolling when scrolling */
+}
+
+/* Card Style for Each Film */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    max-width: 100%; /* Ensure the card does not extend beyond its container */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.card h2 {
+    font-size: 22px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.card .release-year {
+    font-style: italic;
+    font-weight: bold;
+    color: #e2e2e2;
+}
+
+.card .box-office {
+    font-weight: bold;
+    color: #e2e2e2;
+}
+
+.card .directors,
+.card .country {
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* Hover Effects for Cards */
+.card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px;
+    z-index: -1;
+}
+
+/* Animations for the Page */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 1s ease-out;
+}
+
+.card {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        font-size: 20px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #filmData {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust columns for smaller screens */
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+}
